@@ -7,17 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-red: #d32f2f;
+            --primary-red: #d32f2f; 
             --dark-grey: #2c3e50;
             --light-grey: #f4f7f6;
-            --accent-green: #2e7d32;
             --border-color: #e0e0e0;
             --text-main: #333333;
+            --accent-green: #2e7d32;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Barlow', sans-serif;
@@ -73,12 +71,11 @@
             gap: 40px;
         }
 
-        section {
-            margin-bottom: 30px;
-        }
+        section { margin-bottom: 30px; }
 
+        /* ALL HEADERS UPDATED TO RED */
         h2 {
-            background-color: var(--dark-grey);
+            background-color: var(--primary-red);
             color: white;
             padding: 10px 20px;
             font-size: 1.2rem;
@@ -87,23 +84,17 @@
             margin-top: 0;
         }
 
-        /* How It Works List */
-        .step-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
         .step-box {
             display: flex;
             align-items: flex-start;
             background: var(--light-grey);
             padding: 15px;
             border-radius: 4px;
+            margin-bottom: 12px;
         }
 
         .step-number {
-            background: var(--primary-red);
+            background: var(--dark-grey);
             color: white;
             font-weight: 700;
             min-width: 35px;
@@ -115,7 +106,6 @@
             border-radius: 50%;
         }
 
-        /* Image Styling */
         .system-diagram {
             width: 100%;
             height: auto;
@@ -125,7 +115,6 @@
             margin: 15px 0;
         }
 
-        /* Table Styling */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -138,15 +127,21 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        th {
-            background-color: var(--light-grey);
-            font-weight: 700;
-        }
+        th { background-color: var(--light-grey); font-weight: 700; }
 
         .total-row {
             font-weight: 700;
             color: var(--primary-red);
             font-size: 1.1rem;
+            border-top: 2px solid var(--primary-red);
+        }
+
+        .highlight-card {
+            background: #e8f5e9;
+            padding: 15px;
+            border-left: 5px solid var(--accent-green);
+            margin-top: 15px;
+            font-weight: 600;
         }
 
         footer {
@@ -156,105 +151,111 @@
             display: flex;
             justify-content: space-between;
             color: #777;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
-        .cost-highlight {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 4px;
-            border-left: 5px solid var(--accent-green);
-            margin-top: 15px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
 
 <div class="poster-container">
     <header>
-        <div class="university-tag">Illinois Institute of Technology | Spring 2026</div> <h1>Soteria</h1> <div class="subtitle">Smart Emergency Monitoring & Evacuation System: Real-time PoE-powered hazard detection and dynamic evacuation guidance.</div> </header>
+        <div class="university-tag">Illinois Institute of Technology | Spring 2026 [cite: 5]</div>
+        <h1>Soteria [cite: 1]</h1>
+        <div class="subtitle">Smart Emergency Monitoring & Evacuation System [cite: 2]</div>
+    </header>
 
     <div class="grid">
         <div class="col">
             <section>
-                <h2>Problem Statement</h2> <p>Modern building emergency systems often fail to provide reliable real-time communication. Existing systems operate in isolated components, causing delays in hazard signal delivery that impact occupant decision-making[cite: 9, 10, 11].</p>
+                <h2>Problem Statement [cite: 8]</h2>
+                <p>Modern building emergency systems often fail to provide reliable real-time communication during critical situations[cite: 9]. Existing systems operate in isolated components, causing delays and inconsistent device updates across connected endpoints[cite: 10].</p>
             </section>
 
             <section>
-                <h2>Project History</h2> <p>Launched in 2019 as an IPRO 497 initiative, Soteria has grown through multidisciplinary teams. Spring 2026 introduces a full networked system with GraphQL, Raspberry Pi controllers, and real-time dashboards[cite: 17, 19, 20].</p>
+                <h2>Objective [cite: 12]</h2>
+                <p>Design and improve a PoE-powered networked emergency monitoring system that detects hazardous conditions—smoke, CO, and elevated temperature [cite: 13]—and dynamically guides occupants to safety via LED evacuation paths[cite: 14].</p>
             </section>
 
             <section>
-                <h2>How It Works</h2> <div class="step-container">
-                    <div class="step-box">
-                        <span class="step-number">1</span>
-                        <div><strong>Hazard Detected:</strong> Smoke/CO sensors send data via Ethernet to the Raspberry Pi[cite: 23, 24].</div>
-                    </div>
-                    <div class="step-box">
-                        <span class="step-number">2</span>
-                        <div><strong>Risk Analysis:</strong> Model server classifies unsafe zones and applies evacuation logic[cite: 25, 26].</div>
-                    </div>
-                    <div class="step-box">
-                        <span class="step-number">3</span>
-                        <div><strong>LED Guidance:</strong> Red indicates danger; Green shows safe paths—visible in low visibility[cite: 27, 28].</div>
-                    </div>
-                    <div class="step-box">
-                        <span class="step-number">4</span>
-                        <div><strong>Dashboard Update:</strong> Clients receive real-time updates via WebSocket subscriptions[cite: 29, 30].</div>
-                    </div>
+                <h2>Project History [cite: 16]</h2>
+                <p>Launched in 2019 as an IPRO 497 initiative[cite: 17]. Spring 2026 introduced a full networked system with GraphQL, Raspberry Pi controllers, and real-time dashboards[cite: 19, 20].</p>
+            </section>
+
+            <section>
+                <h2>How It Works [cite: 21]</h2>
+                <div class="step-box">
+                    <span class="step-number">1</span>
+                    <div><strong>Hazard Detected:</strong> Smoke/CO sensors send data via Ethernet to the local Raspberry Pi controller[cite: 24].</div>
                 </div>
-            </section>
-
-            <section>
-                <h2>Limitations</h2> <ul>
-                    <li>Documentation gaps from previous teams created initial knowledge hurdles[cite: 75].</li>
-                    <li>Legacy hardware limited available computing power and sensor compatibility[cite: 79].</li>
-                    <li>Budget constraints and parts delays impacted testing and iteration cycles[cite: 80, 81].</li>
-                </ul>
+                <div class="step-box">
+                    <span class="step-number">2</span>
+                    <div><strong>Risk Analysis:</strong> Model server classifies unsafe zones from live readings and applies evacuation logic[cite: 26].</div>
+                </div>
+                <div class="step-box">
+                    <span class="step-number">3</span>
+                    <div><strong>LED Guidance:</strong> RED danger zones and GREEN safe evacuation paths are visible in low-visibility conditions[cite: 28].</div>
+                </div>
+                <div class="step-box">
+                    <span class="step-number">4</span>
+                    <div><strong>Dashboard Update:</strong> Clients receive status updates via WebSocket subscriptions within milliseconds[cite: 30].</div>
+                </div>
             </section>
         </div>
 
         <div class="col">
             <section>
-                <h2>System Design Overview</h2> <img src="images/system-diagram.png" alt="PoE System Architecture" class="system-diagram">
-                <p>The system utilizes a PoE switch to deliver 48V over standard Ethernet cabling, powering all nodes via splitters. The central GraphQL server manages state and broadcasts evacuation directives[cite: 34, 36, 59].</p>
+                <h2>System Design Overview [cite: 31]</h2>
+                <img src="images/system-diagram.png" alt="Soteria PoE Architecture" class="system-diagram">
+                <p>A PoE switch delivers 48V over standard Ethernet cabling, powering all nodes via splitters[cite: 34]. The system integrates distributed hardware sensors and embedded Raspberry Pi controllers with a centralized GraphQL model server[cite: 33].</p>
             </section>
 
             <section>
-                <h2>Software Architecture</h2> <ul>
-                    <li><strong>GraphQL API:</strong> Manages queries and real-time WebSocket subscriptions[cite: 61].</li>
-                    <li><strong>React Dashboard:</strong> Visualizes sensor readings and LED states in real time[cite: 62, 63].</li>
-                    <li><strong>Deployment:</strong> Containerized via mkasi tool for direct hardware deployment[cite: 64].</li>
+                <h2>Software Architecture [cite: 47]</h2>
+                <ul>
+                    <li><strong>Centralized Model Server:</strong> GraphQL-based service managing real-time state for all devices[cite: 59].</li>
+                    <li><strong>GraphQL API:</strong> Supports queries, mutations, and live updates via WebSocket subscriptions[cite: 61].</li>
+                    <li><strong>React Dashboard:</strong> Displays sensor readings, danger flags, and LED states in real time[cite: 62].</li>
+                    <li><strong>Deployment:</strong> Containerized via mkasi tool, deployable directly to Raspberry Pi hardware[cite: 64].</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Cost Analysis</h2> <table>
-                    <tr><th>Component</th><th>Unit Cost</th></tr>
-                    <tr><td>PoE Splitter / Injectors</td><td>$53.93</td></tr> <tr><td>Raspberry Pi Controller</td><td>$35.00</td></tr> <tr><td>Raspberry Pi Touch Display</td><td>$60.00</td></tr> <tr><td>Gravity CO Sensor</td><td>$86.90</td></tr> <tr><td>Standby UPS</td><td>$58.95</td></tr> <tr class="total-row">
-                        <td>Control Hub Total</td><td>$275.78</td> </tr>
+                <h2>Cost Analysis [cite: 71]</h2>
+                <table>
+                    <tr><th>Component</th><th>Price [cite: 74]</th></tr>
+                    <tr><td>PoE Splitter / Injectors</td><td>$53.93</td></tr>
+                    <tr><td>Raspberry Pi Controller</td><td>$35.00</td></tr>
+                    <tr><td>Raspberry Pi Touch Display</td><td>$60.00</td></tr>
+                    <tr><td>Gravity CO Sensor</td><td>$86.90</td></tr>
+                    <tr><td>Standby UPS</td><td>$58.95</td></tr>
+                    <tr class="total-row">
+                        <td>Control Hub Total</td><td>$275.78 [cite: 74]</td>
+                    </tr>
                 </table>
-                <div class="cost-highlight">
-                    <strong>Economic Impact:</strong> ~45% cost reduction at scale compared to traditional fixture installations[cite: 87].
+                <div class="highlight-card">
+                    ~45% cost reduction at scale compared to traditional fixture installations[cite: 87].
                 </div>
             </section>
 
             <section>
-                <h2>Looking Ahead</h2> <p>Future iterations will focus on expanding the PoE network for multi-room integration and refining the automated occupancy status logic within the GraphQL server[cite: 42, 59].</p>
+                <h2>Limitations [cite: 72]</h2>
+                <ul>
+                    <li>Legacy Raspberry Pi models limited available computing power[cite: 79].</li>
+                    <li>Significant time spent diagnosing inherited models lacking sensors[cite: 76].</li>
+                    <li>Budget constraints prevented experimentation to find optimal components[cite: 80, 81].</li>
+                </ul>
             </section>
         </div>
     </div>
 
     <footer>
-        <div>GitHub: github.com/madTriqul/model-server</div> <div>Illinois Institute of Technology | IPRO 497 | Spring 2026</div> </footer>
+        <div>GitHub: github.com/madTriqul/model-server [cite: 88]</div>
+        <div>Illinois Institute of Technology | IPRO 497 | Spring 2026 [cite: 90]</div>
+    </footer>
 </div>
 
 </body>
