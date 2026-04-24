@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soteria - Smart Emergency Monitoring</title>
+    <title>Soteria - Smart Emergency Monitoring & Evacuation System</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,89 +12,120 @@
             --light-grey: #f4f7f6;
             --accent-green: #2e7d32;
             --border-color: #e0e0e0;
+            --text-main: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Barlow', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 40px;
             background-color: #ffffff;
-            color: var(--dark-grey);
-            line-height: 1.4;
+            color: var(--text-main);
+            line-height: 1.5;
         }
 
         .poster-container {
             max-width: 1200px;
             margin: 0 auto;
             border: 1px solid var(--border-color);
-            padding: 40px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
         header {
             text-align: center;
-            border-bottom: 4px solid var(--primary-red);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 5px solid var(--primary-red);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
         }
 
         .university-tag {
             text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            color: #777;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            color: #666;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 10px 0;
             text-transform: uppercase;
             color: var(--primary-red);
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 400;
-            max-width: 800px;
+            color: var(--dark-grey);
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         section {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         h2 {
             background-color: var(--dark-grey);
             color: white;
-            padding: 8px 15px;
-            font-size: 1.1rem;
+            padding: 10px 20px;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            margin-top: 0;
+        }
+
+        /* How It Works List */
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .step-box {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
-            padding: 10px;
             background: var(--light-grey);
+            padding: 15px;
+            border-radius: 4px;
         }
 
         .step-number {
             background: var(--primary-red);
             color: white;
-            font-weight: bold;
-            padding: 5px 12px;
+            font-weight: 700;
+            min-width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-right: 15px;
-            border-radius: 4px;
+            border-radius: 50%;
         }
 
+        /* Image Styling */
+        .system-diagram {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background: white;
+            margin: 15px 0;
+        }
+
+        /* Table Styling */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -103,36 +134,45 @@
 
         th, td {
             text-align: left;
-            padding: 10px;
+            padding: 12px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        th { background-color: var(--light-grey); }
-
-        .highlight-box {
-            border-left: 5px solid var(--primary-red);
-            padding-left: 15px;
-            font-style: italic;
+        th {
+            background-color: var(--light-grey);
+            font-weight: 700;
         }
 
-        .placeholder-img {
-            width: 100%;
-            height: 200px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #ccc;
-            margin: 10px 0;
+        .total-row {
+            font-weight: 700;
+            color: var(--primary-red);
+            font-size: 1.1rem;
         }
 
         footer {
-            margin-top: 50px;
-            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
             padding-top: 20px;
+            border-top: 2px solid var(--border-color);
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
+            color: #777;
+            font-weight: 600;
+        }
+
+        .cost-highlight {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 5px solid var(--accent-green);
+            margin-top: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -140,81 +180,81 @@
 
 <div class="poster-container">
     <header>
-        <div class="university-tag">Illinois Institute of Technology | Spring 2026</div>
-        <h1>Soteria</h1>
-        <div class="subtitle">Smart Emergency Monitoring & Evacuation System: Real-time PoE-powered hazard detection and dynamic evacuation guidance for safety-critical buildings[cite: 6].</div>
-    </header>
+        <div class="university-tag">Illinois Institute of Technology | Spring 2026</div> <h1>Soteria</h1> <div class="subtitle">Smart Emergency Monitoring & Evacuation System: Real-time PoE-powered hazard detection and dynamic evacuation guidance.</div> </header>
 
     <div class="grid">
         <div class="col">
             <section>
-                <h2>Problem Statement</h2>
-                <p>Modern building emergency systems often fail to provide reliable real-time communication during critical situations[cite: 9]. Isolated components cause delays and inconsistent device updates across connected endpoints[cite: 10].</p>
+                <h2>Problem Statement</h2> <p>Modern building emergency systems often fail to provide reliable real-time communication. Existing systems operate in isolated components, causing delays in hazard signal delivery that impact occupant decision-making[cite: 9, 10, 11].</p>
             </section>
 
             <section>
-                <h2>Objective</h2>
-                <p>Design a PoE-powered networked system that detects smoke, CO, and elevated temperatures[cite: 13, 14]. This semester focuses on resolving real-time synchronization between distributed hardware, GraphQL, and dashboard clients[cite: 15].</p>
+                <h2>Project History</h2> <p>Launched in 2019 as an IPRO 497 initiative, Soteria has grown through multidisciplinary teams. Spring 2026 introduces a full networked system with GraphQL, Raspberry Pi controllers, and real-time dashboards[cite: 17, 19, 20].</p>
             </section>
 
             <section>
-                <h2>How It Works</h2>
-                <div class="step-box">
-                    <span class="step-number">1</span>
-                    <div><strong>Hazard Detected:</strong> Sensors send data via Ethernet to the local Raspberry Pi[cite: 24].</div>
+                <h2>How It Works</h2> <div class="step-container">
+                    <div class="step-box">
+                        <span class="step-number">1</span>
+                        <div><strong>Hazard Detected:</strong> Smoke/CO sensors send data via Ethernet to the Raspberry Pi[cite: 23, 24].</div>
+                    </div>
+                    <div class="step-box">
+                        <span class="step-number">2</span>
+                        <div><strong>Risk Analysis:</strong> Model server classifies unsafe zones and applies evacuation logic[cite: 25, 26].</div>
+                    </div>
+                    <div class="step-box">
+                        <span class="step-number">3</span>
+                        <div><strong>LED Guidance:</strong> Red indicates danger; Green shows safe paths—visible in low visibility[cite: 27, 28].</div>
+                    </div>
+                    <div class="step-box">
+                        <span class="step-number">4</span>
+                        <div><strong>Dashboard Update:</strong> Clients receive real-time updates via WebSocket subscriptions[cite: 29, 30].</div>
+                    </div>
                 </div>
-                <div class="step-box">
-                    <span class="step-number">2</span>
-                    <div><strong>Risk Analysis:</strong> Model server classifies unsafe zones and applies evacuation logic[cite: 26].</div>
-                </div>
-                <div class="step-box">
-                    <span class="step-number">3</span>
-                    <div><strong>LED Guidance:</strong> Red for danger, Green for safe paths—visible in low visibility[cite: 28].</div>
-                </div>
-                <div class="step-box">
-                    <span class="step-number">4</span>
-                    <div><strong>Dashboard Update:</strong> Real-time status updates via WebSocket subscriptions[cite: 30].</div>
-                </div>
+            </section>
+
+            <section>
+                <h2>Limitations</h2> <ul>
+                    <li>Documentation gaps from previous teams created initial knowledge hurdles[cite: 75].</li>
+                    <li>Legacy hardware limited available computing power and sensor compatibility[cite: 79].</li>
+                    <li>Budget constraints and parts delays impacted testing and iteration cycles[cite: 80, 81].</li>
+                </ul>
             </section>
         </div>
 
         <div class="col">
             <section>
-                <h2>System Design Overview</h2>
-                <div class="placeholder-img">Architecture Diagram [cite: 32]</div>
-                <p>A PoE switch delivers 48V over standard Ethernet, powering all nodes via splitters. Each Pi monitors its zone and reports to the central server[cite: 35].</p>
+                <h2>System Design Overview</h2> <img src="images/system-diagram.png" alt="PoE System Architecture" class="system-diagram">
+                <p>The system utilizes a PoE switch to deliver 48V over standard Ethernet cabling, powering all nodes via splitters. The central GraphQL server manages state and broadcasts evacuation directives[cite: 34, 36, 59].</p>
             </section>
 
             <section>
-                <h2>Cost Analysis</h2>
-                <table>
-                    <tr><th>Component</th><th>Price</th></tr>
-                    <tr><td>PoE Splitter / Injectors</td><td>$53.93</td></tr>
-                    <tr><td>Raspberry Pi + Touch Display</td><td>$95.00</td></tr>
-                    <tr><td>Gravity CO Sensor</td><td>$86.90</td></tr>
-                    <tr><td>Standby UPS</td><td>$58.95</td></tr>
-                    <tr style="font-weight: bold; color: var(--primary-red);">
-                        <td>Control Hub Total</td><td>$275.78 </td>
-                    </tr>
-                </table>
-                <p><em>Soteria offers a 45% cost reduction at scale compared to traditional systems.</em></p>
-            </section>
-
-            <section>
-                <h2>Software Architecture</h2>
-                <ul>
-                    <li><strong>GraphQL API:</strong> Supports queries, mutations, and live subscriptions.</li>
-                    <li><strong>React Dashboard:</strong> Displays real-time sensor readings and danger flags[cite: 62].</li>
-                    <li><strong>Deployment:</strong> Containerized via mkasi tool directly onto hardware[cite: 64].</li>
+                <h2>Software Architecture</h2> <ul>
+                    <li><strong>GraphQL API:</strong> Manages queries and real-time WebSocket subscriptions[cite: 61].</li>
+                    <li><strong>React Dashboard:</strong> Visualizes sensor readings and LED states in real time[cite: 62, 63].</li>
+                    <li><strong>Deployment:</strong> Containerized via mkasi tool for direct hardware deployment[cite: 64].</li>
                 </ul>
+            </section>
+
+            <section>
+                <h2>Cost Analysis</h2> <table>
+                    <tr><th>Component</th><th>Unit Cost</th></tr>
+                    <tr><td>PoE Splitter / Injectors</td><td>$53.93</td></tr> <tr><td>Raspberry Pi Controller</td><td>$35.00</td></tr> <tr><td>Raspberry Pi Touch Display</td><td>$60.00</td></tr> <tr><td>Gravity CO Sensor</td><td>$86.90</td></tr> <tr><td>Standby UPS</td><td>$58.95</td></tr> <tr class="total-row">
+                        <td>Control Hub Total</td><td>$275.78</td> </tr>
+                </table>
+                <div class="cost-highlight">
+                    <strong>Economic Impact:</strong> ~45% cost reduction at scale compared to traditional fixture installations[cite: 87].
+                </div>
+            </section>
+
+            <section>
+                <h2>Looking Ahead</h2> <p>Future iterations will focus on expanding the PoE network for multi-room integration and refining the automated occupancy status logic within the GraphQL server[cite: 42, 59].</p>
             </section>
         </div>
     </div>
 
     <footer>
-        <div>GitHub: github.com/madTriqul/model-server [cite: 88]</div>
-        <div>Illinois Institute of Technology | IPRO 497 [cite: 90]</div>
-    </footer>
+        <div>GitHub: github.com/madTriqul/model-server</div> <div>Illinois Institute of Technology | IPRO 497 | Spring 2026</div> </footer>
 </div>
 
 </body>
