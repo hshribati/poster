@@ -129,13 +129,14 @@
             grid-column: span 2;
         }
 
+        /* Updated to ensure the FULL image shows without being cut off */
         .software-img-wide {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: 500px;
+            object-fit: contain; 
             border: 1px solid var(--border-color);
-            padding: 5px;
-            background: white;
+            padding: 10px;
+            background: #fff;
             margin: 10px 0;
             border-radius: 4px;
         }
