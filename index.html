@@ -40,6 +40,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         header {
@@ -47,6 +48,16 @@
             border-bottom: 5px solid var(--primary-red);
             padding-bottom: 20px;
             margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Added Logo Styling */
+        .university-logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 70px;
+            width: auto;
         }
 
         .university-tag {
@@ -200,6 +211,7 @@
 
 <div class="poster-container">
     <header>
+        <img src="Illinois_Institute_of_Technology_(seal).svg" alt="IIT Logo" class="university-logo">
         <div class="university-tag">Illinois Institute of Technology | Spring 2026</div>
         <h1>Soteria</h1>
         <div class="subtitle">Smart Emergency Monitoring & Evacuation System</div>
