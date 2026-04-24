@@ -22,7 +22,6 @@
             font-family: 'Barlow', sans-serif;
             margin: 0;
             padding: 40px 20px;
-            /* MODERN TECH BACKGROUND */
             background-color: var(--bg-slate);
             background-image: radial-gradient(circle at 10% 10%, rgba(211, 47, 47, 0.15) 0%, transparent 40%),
                               radial-gradient(circle at 90% 90%, rgba(46, 125, 50, 0.1) 0%, transparent 40%);
@@ -32,7 +31,6 @@
         }
 
         .poster-container {
-            /* FIXED WIDTH FOR WIDE FORMAT */
             width: 95%;
             max-width: 1600px;
             margin: 0 auto;
@@ -73,7 +71,6 @@
             color: var(--dark-grey);
         }
 
-        /* 3-COLUMN GRID FOR WIDE VIEW */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -131,31 +128,35 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         th, td {
             text-align: left;
-            padding: 10px;
+            padding: 8px;
             border-bottom: 1px solid var(--border-color);
         }
-
-        th { background-color: var(--light-grey); }
 
         .total-row {
             font-weight: 700;
             color: var(--primary-red);
             border-top: 2px solid var(--primary-red);
+            background-color: #fff1f2;
         }
 
-        .highlight-card {
+        .market-card {
             background: #f0fdf4;
             padding: 15px;
-            border-left: 5px solid var(--accent-green);
-            margin-top: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: 1px solid #bbf7d0;
+        }
+
+        .market-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: #166534;
         }
 
         footer {
@@ -170,7 +171,7 @@
         }
 
         ul { padding-left: 20px; margin: 5px 0; }
-        li { margin-bottom: 5px; font-size: 0.9rem; }
+        li { margin-bottom: 6px; font-size: 0.85rem; color: #475569; }
     </style>
 </head>
 <body>
@@ -201,6 +202,11 @@
                 <div class="step-box"><span class="step-number">3</span><div><strong>Guidance:</strong> LEDs light Red/Green paths.</div></div>
                 <div class="step-box"><span class="step-number">4</span><div><strong>Dashboard:</strong> Real-time status via WebSockets.</div></div>
             </section>
+
+            <section>
+                <h2>Project History</h2>
+                <p>Started in 2019 (IPRO 497). Spring 2026 integrated GraphQL and real-time synchronization.</p>
+            </section>
         </div>
 
         <div class="col">
@@ -219,33 +225,47 @@
                     <li><strong>Docker:</strong> Containerized deployment (mkasi).</li>
                 </ul>
             </section>
+            
+            <section>
+                <h2>Market Comparison</h2>
+                <div class="market-card">
+                    <div class="market-item">
+                        <span>Soteria per fixture (avg)</span>
+                        <span style="color: var(--accent-green);">$60</span>
+                    </div>
+                    <div class="market-item">
+                        <span>Traditional fixture (avg)</span>
+                        <span style="color: var(--primary-red);">$115</span>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <div class="col">
             <section>
                 <h2>Cost Analysis</h2>
                 <table>
-                    <tr><th>Component</th><th>Price</th></tr>
-                    <tr><td>PoE Hardware</td><td>$53.93</td></tr>
-                    <tr><td>Raspberry Pi Hub</td><td>$35.00</td></tr>
-                    <tr><td>CO Sensor</td><td>$86.90</td></tr>
-                    <tr class="total-row"><td>Total Hub Cost</td><td>$275.78</td></tr>
+                    <tr><td>PoE Splitter</td><td>$10.95</td></tr>
+                    <tr><td>Passive Injector</td><td>$12.99</td></tr>
+                    <tr><td>PoE+ Injector</td><td>$29.99</td></tr>
+                    <tr><td>Raspberry Pi</td><td>$35.00</td></tr>
+                    <tr><td>Touch Display</td><td>$60.00</td></tr>
+                    <tr><td>Gravity CO Sensor</td><td>$66.90</td></tr>
+                    <tr><td>Standby UPS</td><td>$59.95</td></tr>
+                    <tr class="total-row"><td>Control hub total</td><td>$275.78</td></tr>
                 </table>
-                <div class="highlight-card">~45% cost reduction vs traditional systems.</div>
             </section>
 
             <section>
                 <h2>Limitations</h2>
                 <ul>
-                    <li>Legacy Pi model hardware constraints.</li>
-                    <li>Significant time spent on hardware diagnosis.</li>
-                    <li>Budget limits for component optimization.</li>
+                    <li>Poor documentation from previous teams created significant knowledge gaps and unknowns at project start</li>
+                    <li>No sensors present on the inherited working model — substantial time spent diagnosing this</li>
+                    <li>Older Raspberry Pi model limited available computing power and sensor compatibility</li>
+                    <li>Parts delays reduced available time for testing and iteration</li>
+                    <li>Limited budget prevented experimentation to find optimal components</li>
+                    <li>Unclear rationale behind prior hardware choices increased ramp-up time</li>
                 </ul>
-            </section>
-
-            <section>
-                <h2>Project History</h2>
-                <p>Started in 2019 (IPRO 497). Spring 2026 integrated GraphQL and real-time synchronization.</p>
             </section>
         </div>
     </div>
