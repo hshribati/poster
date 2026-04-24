@@ -40,6 +40,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         header {
@@ -47,6 +48,16 @@
             border-bottom: 5px solid var(--primary-red);
             padding-bottom: 20px;
             margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Added Logo Styling */
+        .university-logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 70px;
+            width: auto;
         }
 
         .university-tag {
@@ -125,14 +136,17 @@
             border-radius: 4px;
         }
 
-        /* Style to make Software Architecture image vertically longer */
-        .tall-stack-img {
+        .wide-arch {
+            grid-column: span 2;
+        }
+
+        .software-img-wide {
             width: 100%;
-            height: 480px; /* Increased height to cover empty space */
-            object-fit: cover;
+            height: 400px;
+            object-fit: contain; 
             border: 1px solid var(--border-color);
-            padding: 5px;
-            background: white;
+            padding: 10px;
+            background: #fff;
             margin: 10px 0;
             border-radius: 4px;
         }
@@ -185,12 +199,19 @@
 
         ul { padding-left: 20px; margin: 5px 0; }
         li { margin-bottom: 6px; font-size: 0.85rem; color: #475569; }
+        
+        .arch-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="poster-container">
     <header>
+        <img src="Illinois_Institute_of_Technology_(seal).svg" alt="IIT Logo" class="university-logo">
         <div class="university-tag">Illinois Institute of Technology | Spring 2026</div>
         <h1>Soteria</h1>
         <div class="subtitle">Smart Emergency Monitoring & Evacuation System</div>
@@ -217,33 +238,20 @@
             </section>
 
             <section>
-                <h2>Project History</h2>
-                <p>Started in 2019 (IPRO 497). Spring 2026 integrated GraphQL and real-time synchronization.</p>
-            </section>
-        </div>
-
-        <div class="col">
-            <section>
-                <h2>System Architecture</h2>
-                <img src="images/system-diagram.png" alt="Architecture" class="system-diagram">
-                <p style="font-size: 0.85rem;">PoE delivers 48V over Ethernet, powering all nodes via splitters for high reliability.</p>
-            </section>
-
-            <section>
-                <h2>Software Architecture</h2>
-                <img src="images/software-architecture.png" alt="Software" class="tall-stack-img">
+                <h2>Limitations</h2>
                 <ul>
-                    <li><strong>GraphQL:</strong> Real-time state management.</li>
-                    <li><strong>React:</strong> Low-latency dashboard updates.</li>
-                    <li><strong>Docker:</strong> Containerized deployment (mkasi).</li>
+                    <li>Poor documentation from previous teams created significant knowledge gaps and unknowns at project start</li>
+                    <li>No sensors present on the inherited working model — substantial time spent diagnosing this</li>
+                    <li>Older Raspberry Pi model limited available computing power and sensor compatibility</li>
+                    <li>Parts delays reduced available time for testing and iteration</li>
+                    <li>Limited budget prevented experimentation to find optimal components</li>
+                    <li>Unclear rationale behind prior hardware choices increased ramp-up time</li>
                 </ul>
             </section>
-        </div>
 
-        <div class="col">
             <section>
                 <h2>Cost Analysis</h2>
-                <table>
+                <table style="width: 100%;">
                     <tr><td>PoE Splitter</td><td>$10.95</td></tr>
                     <tr><td>Passive Injector</td><td>$12.99</td></tr>
                     <tr><td>PoE+ Injector</td><td>$29.99</td></tr>
@@ -261,17 +269,40 @@
                     </span>
                 </div>
             </section>
+        </div>
+
+        <div class="wide-arch">
+            <section>
+                <h2>System Architecture</h2>
+                <img src="images/system-diagram.png" alt="Architecture" class="system-diagram">
+                <div class="arch-list">
+                    <ul>
+                        <li><strong>PoE Splitter (48V → 5V, 2.5A)</strong> — powers Raspberry Pi from Ethernet</li>
+                        <li><strong>Passive Injector</strong> — combines power and data on a single cable</li>
+                        <li><strong>PoE+ Injector</strong> — up to 30W for higher-draw components</li>
+                        <li><strong>Gravity CO Sensor</strong> — detects hazardous gas, triggers emergency response</li>
+                    </ul>
+                    <ul>
+                        <li><strong>Raspberry Pi</strong> — central controller per zone</li>
+                        <li><strong>Raspberry Pi Touch Display</strong> — local status and alert interface</li>
+                        <li><strong>Standby UPS</strong> — backup power during outages</li>
+                    </ul>
+                </div>
+            </section>
 
             <section>
-                <h2>Limitations</h2>
-                <ul>
-                    <li>Poor documentation from previous teams created significant knowledge gaps and unknowns at project start</li>
-                    <li>No sensors present on the inherited working model — substantial time spent diagnosing this</li>
-                    <li>Older Raspberry Pi model limited available computing power and sensor compatibility</li>
-                    <li>Parts delays reduced available time for testing and iteration</li>
-                    <li>Limited budget prevented experimentation to find optimal components</li>
-                    <li>Unclear rationale behind prior hardware choices increased ramp-up time</li>
-                </ul>
+                <h2>Software Architecture</h2>
+                <img src="images/software-architecture.png" alt="Software" class="software-img-wide">
+                <div style="display: flex; gap: 20px;">
+                    <ul>
+                        <li><strong>GraphQL:</strong> Real-time state management. <strong>React:</strong> Low-latency dashboard updates. <strong>Docker:</strong> Containerized deployment (mkasi).</li>  
+                </div>
+            </section>
+
+            <section>
+                <h2>Project History</h2>
+                <p>Soteria launched in 2019 as a long-term IPRO 497 initiative, growing each semester through multidisciplinary student teams spanning hardware, software, and business. Spring 2024 earned top honors at Innovation Day with a strong software architecture foundation. Fall 2025 expanded and refined the system. Spring 2026 introduced a full networked system with GraphQL, Raspberry Pi controllers, and real-time dashboards.
+</p>
             </section>
         </div>
     </div>
