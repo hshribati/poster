@@ -9,12 +9,11 @@
         :root {
             --primary-red: #d32f2f; 
             --dark-grey: #2c3e50;
-            --light-grey: #f4f7f6;
-            --border-color: #e0e0e0;
-            --text-main: #333333;
-            --accent-green: #2e7d32;
-            /* New Modern Background Color */
-            --bg-slate: #1e293b; 
+            --light-grey: #f1f5f9;
+            --border-color: #e2e8f0;
+            --text-main: #1e293b;
+            --accent-green: #166534;
+            --bg-dark: #0f172a;
         }
 
         * { box-sizing: border-box; }
@@ -22,73 +21,84 @@
         body {
             font-family: 'Barlow', sans-serif;
             margin: 0;
-            padding: 60px 20px;
-            /* MODERN TECH BACKGROUND */
-            background-color: var(--bg-slate);
-            background-image: radial-gradient(circle at 20% 30%, rgba(211, 47, 47, 0.15) 0%, transparent 40%),
-                              radial-gradient(circle at 80% 70%, rgba(46, 125, 50, 0.1) 0%, transparent 40%);
+            padding: 40px;
+            /* MODERN COOL BACKGROUND */
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(211, 47, 47, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(30, 41, 59, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(46, 125, 50, 0.1) 0px, transparent 50%);
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .poster-container {
-            max-width: 1200px;
+            /* WIDER FORMAT (Landscape) */
+            max-width: 1800px;
+            width: 100%;
             margin: 0 auto;
             background-color: #ffffff;
-            border-radius: 12px; /* Rounded corners for modern feel */
+            border-radius: 16px;
             padding: 60px;
-            /* DEEP SHADOW for floating effect */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         header {
             text-align: center;
-            border-bottom: 5px solid var(--primary-red);
-            padding-bottom: 25px;
+            border-bottom: 6px solid var(--primary-red);
+            padding-bottom: 30px;
             margin-bottom: 40px;
         }
 
         .university-tag {
             text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 1rem;
-            color: #666;
+            letter-spacing: 3px;
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 4rem;
-            margin: 10px 0;
+            font-size: 5.5rem;
+            margin: 0;
             text-transform: uppercase;
             color: var(--primary-red);
-            letter-spacing: -1px;
+            letter-spacing: -3px;
+            line-height: 1;
         }
 
         .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 400;
             color: var(--dark-grey);
-            max-width: 900px;
-            margin: 0 auto;
+            margin-top: 10px;
         }
 
+        /* THREE COLUMN GRID FOR WIDE VIEW */
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 50px;
         }
 
-        section { margin-bottom: 30px; }
+        section { margin-bottom: 35px; }
 
         h2 {
             background-color: var(--primary-red);
             color: white;
-            padding: 10px 20px;
-            font-size: 1.2rem;
+            padding: 12px 20px;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-top: 0;
             border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .step-box {
@@ -96,42 +106,44 @@
             align-items: flex-start;
             background: var(--light-grey);
             padding: 15px;
-            border-radius: 4px;
+            border-radius: 8px;
             margin-bottom: 12px;
+            border: 1px solid var(--border-color);
         }
 
         .step-number {
             background: var(--dark-grey);
             color: white;
             font-weight: 700;
-            min-width: 35px;
-            height: 35px;
+            min-width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
             border-radius: 50%;
+            font-size: 0.9rem;
         }
 
         .system-diagram {
             width: 100%;
-            height: auto;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            padding: 10px;
-            background: white;
+            background: #fff;
             margin: 15px 0;
-            border-radius: 4px;
+            transition: transform 0.3s ease;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
+            font-size: 1rem;
         }
 
         th, td {
             text-align: left;
-            padding: 12px;
+            padding: 14px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -140,132 +152,24 @@
         .total-row {
             font-weight: 700;
             color: var(--primary-red);
-            font-size: 1.1rem;
-            border-top: 2px solid var(--primary-red);
+            font-size: 1.2rem;
+            background-color: #fef2f2;
         }
 
         .highlight-card {
-            background: #e8f5e9;
-            padding: 15px;
-            border-left: 5px solid var(--accent-green);
-            margin-top: 15px;
+            background: #f0fdf4;
+            padding: 20px;
+            border-left: 6px solid #22c55e;
+            margin-top: 20px;
             font-weight: 600;
+            color: var(--accent-green);
+            border-radius: 0 8px 8px 0;
         }
 
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
+            margin-top: 50px;
+            padding-top: 30px;
             border-top: 2px solid var(--border-color);
             display: flex;
             justify-content: space-between;
-            color: #777;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-    </style>
-</head>
-<body>
-
-<div class="poster-container">
-    <header>
-        <div class="university-tag">Illinois Institute of Technology | Spring 2026</div>
-        <h1>Soteria</h1>
-        <div class="subtitle">Smart Emergency Monitoring & Evacuation System</div>
-    </header>
-
-    <div class="grid">
-        <div class="col">
-            <section>
-                <h2>Problem Statement</h2>
-                <p>Modern building emergency systems often fail to provide reliable real-time communication during critical situations. Existing systems operate in isolated components, causing delays and inconsistent device updates across connected endpoints.</p>
-            </section>
-
-            <section>
-                <h2>Objective</h2>
-                <p>Design and improve a PoE-powered networked emergency monitoring system that detects hazardous conditions—smoke, CO, and elevated temperature—and dynamically guides occupants to safety via LED evacuation paths.</p>
-            </section>
-
-            <section>
-                <h2>Project History</h2>
-                <p>Launched in 2019 as an IPRO 497 initiative. Spring 2026 introduced a full networked system with GraphQL, Raspberry Pi controllers, and real-time dashboards.</p>
-            </section>
-
-            <section>
-                <h2>How It Works</h2>
-                <div class="step-box">
-                    <span class="step-number">1</span>
-                    <div><strong>Hazard Detected:</strong> Smoke/CO sensors send data via Ethernet to the local Raspberry Pi controller.</div>
-                </div>
-                <div class="step-box">
-                    <span class="step-number">2</span>
-                    <div><strong>Risk Analysis:</strong> Model server classifies unsafe zones from live readings and applies evacuation logic.</div>
-                </div>
-                <div class="step-box">
-                    <span class="step-number">3</span>
-                    <div><strong>LED Guidance:</strong> RED danger zones and GREEN safe evacuation paths are visible in low-visibility conditions.</div>
-                </div>
-                <div class="step-box">
-                    <span class="step-number">4</span>
-                    <div><strong>Dashboard Update:</strong> Clients receive status updates via WebSocket subscriptions within milliseconds.</div>
-                </div>
-            </section>
-        </div>
-
-        <div class="col">
-            <section>
-                <h2>System Design Overview</h2>
-                <img src="images/system-diagram.png" alt="Soteria PoE Architecture" class="system-diagram">
-                <p>A PoE switch delivers 48V over standard Ethernet cabling, powering all nodes via splitters. The system integrates distributed hardware sensors and embedded Raspberry Pi controllers with a centralized GraphQL model server.</p>
-            </section>
-
-            <section>
-                <h2>Software Architecture</h2>
-                <img src="images/software-architecture.png" alt="Soteria Software Architecture" class="system-diagram">
-                <ul>
-                    <li><strong>Centralized Model Server:</strong> GraphQL-based service managing real-time state for all devices.</li>
-                    <li><strong>GraphQL API:</strong> Supports queries, mutations, and live updates via WebSocket subscriptions.</li>
-                    <li><strong>React Dashboard:</strong> Displays sensor readings, danger flags, and LED states in real time.</li>
-                    <li><strong>Deployment:</strong> Containerized via mkasi tool, deployable directly to Raspberry Pi hardware.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Cost Analysis</h2>
-                <table>
-                    <tr><th>Component</th><th>Price</th></tr>
-                    <tr><td>PoE Splitter / Injectors</td><td>$53.93</td></tr>
-                    <tr><td>Raspberry Pi Controller</td><td>$35.00</td></tr>
-                    <tr><td>Raspberry Pi Touch Display</td><td>$60.00</td></tr>
-                    <tr><td>Gravity CO Sensor</td><td>$86.90</td></tr>
-                    <tr><td>Standby UPS</td><td>$58.95</td></tr>
-                    <tr class="total-row">
-                        <td>Control Hub Total</td><td>$275.78</td>
-                    </tr>
-                </table>
-                <div class="highlight-card">
-                    ~45% cost reduction at scale compared to traditional fixture installations.
-                </div>
-            </section>
-
-            <section>
-                <h2>Limitations</h2>
-                <ul>
-                    <li>Legacy Raspberry Pi models limited available computing power.</li>
-                    <li>Significant time spent diagnosing inherited models lacking sensors.</li>
-                    <li>Budget constraints prevented experimentation to find optimal components.</li>
-                </ul>
-            </section>
-        </div>
-    </div>
-
-    <footer>
-        <div>GitHub: github.com/madTriqul/model-server</div>
-        <div>Illinois Institute of Technology | IPRO 497 | Spring 2026</div>
-    </footer>
-</div>
-
-</body>
-</html>
+            color: #6
