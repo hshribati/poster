@@ -129,10 +129,9 @@
             grid-column: span 2;
         }
 
-        /* Updated to ensure the FULL image shows without being cut off */
         .software-img-wide {
             width: 100%;
-            height: 400px;
+            height: 500px;
             object-fit: contain; 
             border: 1px solid var(--border-color);
             padding: 10px;
@@ -189,6 +188,12 @@
 
         ul { padding-left: 20px; margin: 5px 0; }
         li { margin-bottom: 6px; font-size: 0.85rem; color: #475569; }
+        
+        .arch-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
     </style>
 </head>
 <body>
@@ -258,7 +263,19 @@
             <section>
                 <h2>System Architecture</h2>
                 <img src="images/system-diagram.png" alt="Architecture" class="system-diagram">
-                <p style="font-size: 0.85rem;">PoE delivers 48V over Ethernet, powering all nodes via splitters for high reliability.</p>
+                <div class="arch-list">
+                    <ul>
+                        <li><strong>PoE Splitter (48V → 5V, 2.5A)</strong> — powers Raspberry Pi from Ethernet</li>
+                        <li><strong>Passive Injector</strong> — combines power and data on a single cable</li>
+                        <li><strong>PoE+ Injector</strong> — up to 30W for higher-draw components</li>
+                        <li><strong>Gravity CO Sensor</strong> — detects hazardous gas, triggers emergency response</li>
+                    </ul>
+                    <ul>
+                        <li><strong>Raspberry Pi</strong> — central controller per zone</li>
+                        <li><strong>Raspberry Pi Touch Display</strong> — local status and alert interface</li>
+                        <li><strong>Standby UPS</strong> — backup power during outages</li>
+                    </ul>
+                </div>
             </section>
 
             <section>
