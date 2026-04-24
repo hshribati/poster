@@ -125,10 +125,15 @@
             border-radius: 4px;
         }
 
-        /* Style to make Software Architecture image vertically longer */
-        .tall-stack-img {
+        /* Widening the Architecture sections */
+        .wide-arch {
+            grid-column: span 2;
+        }
+
+        /* Adjustment for the wider stack image */
+        .software-img-wide {
             width: 100%;
-            height: 480px; /* Increased height to cover empty space */
+            height: 400px;
             object-fit: cover;
             border: 1px solid var(--border-color);
             padding: 5px;
@@ -217,52 +222,6 @@
             </section>
 
             <section>
-                <h2>Project History</h2>
-                <p>Started in 2019 (IPRO 497). Spring 2026 integrated GraphQL and real-time synchronization.</p>
-            </section>
-        </div>
-
-        <div class="col">
-            <section>
-                <h2>System Architecture</h2>
-                <img src="images/system-diagram.png" alt="Architecture" class="system-diagram">
-                <p style="font-size: 0.85rem;">PoE delivers 48V over Ethernet, powering all nodes via splitters for high reliability.</p>
-            </section>
-
-            <section>
-                <h2>Software Architecture</h2>
-                <img src="images/software-architecture.png" alt="Software" class="tall-stack-img">
-                <ul>
-                    <li><strong>GraphQL:</strong> Real-time state management.</li>
-                    <li><strong>React:</strong> Low-latency dashboard updates.</li>
-                    <li><strong>Docker:</strong> Containerized deployment (mkasi).</li>
-                </ul>
-            </section>
-        </div>
-
-        <div class="col">
-            <section>
-                <h2>Cost Analysis</h2>
-                <table>
-                    <tr><td>PoE Splitter</td><td>$10.95</td></tr>
-                    <tr><td>Passive Injector</td><td>$12.99</td></tr>
-                    <tr><td>PoE+ Injector</td><td>$29.99</td></tr>
-                    <tr><td>Raspberry Pi</td><td>$35.00</td></tr>
-                    <tr><td>Touch Display</td><td>$60.00</td></tr>
-                    <tr><td>Gravity CO Sensor</td><td>$66.90</td></tr>
-                    <tr><td>Standby UPS</td><td>$59.95</td></tr>
-                    <tr class="total-row"><td>Control hub total</td><td>$275.78</td></tr>
-                    <tr><td>Soteria per fixture (avg)</td><td>$60.00</td></tr>
-                    <tr><td>Traditional fixture (avg)</td><td>$115.00</td></tr>
-                </table>
-                <div class="reduction-card">
-                    <span class="reduction-text">
-                        ~45% cost reduction at scale compared to traditional fixture installations
-                    </span>
-                </div>
-            </section>
-
-            <section>
                 <h2>Limitations</h2>
                 <ul>
                     <li>Poor documentation from previous teams created significant knowledge gaps and unknowns at project start</li>
@@ -272,6 +231,54 @@
                     <li>Limited budget prevented experimentation to find optimal components</li>
                     <li>Unclear rationale behind prior hardware choices increased ramp-up time</li>
                 </ul>
+            </section>
+
+            <section>
+                <h2>Project History</h2>
+                <p>Started in 2019 (IPRO 497). Spring 2026 integrated GraphQL and real-time synchronization.</p>
+            </section>
+        </div>
+
+        <div class="wide-arch">
+            <section>
+                <h2>System Architecture</h2>
+                <img src="images/system-diagram.png" alt="Architecture" class="system-diagram">
+                <p style="font-size: 0.85rem;">PoE delivers 48V over Ethernet, powering all nodes via splitters for high reliability.</p>
+            </section>
+
+            <section>
+                <h2>Software Architecture</h2>
+                <img src="images/software-architecture.png" alt="Software" class="software-img-wide">
+                <div style="display: flex; gap: 20px;">
+                    <ul>
+                        <li><strong>GraphQL:</strong> Real-time state management.</li>
+                        <li><strong>React:</strong> Low-latency dashboard updates.</li>
+                        <li><strong>Docker:</strong> Containerized deployment (mkasi).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cost Analysis</h2>
+                <div style="display: flex; gap: 40px; align-items: start;">
+                    <table style="flex: 2;">
+                        <tr><td>PoE Splitter</td><td>$10.95</td></tr>
+                        <tr><td>Passive Injector</td><td>$12.99</td></tr>
+                        <tr><td>PoE+ Injector</td><td>$29.99</td></tr>
+                        <tr><td>Raspberry Pi</td><td>$35.00</td></tr>
+                        <tr><td>Touch Display</td><td>$60.00</td></tr>
+                        <tr><td>Gravity CO Sensor</td><td>$66.90</td></tr>
+                        <tr><td>Standby UPS</td><td>$59.95</td></tr>
+                        <tr class="total-row"><td>Control hub total</td><td>$275.78</td></tr>
+                        <tr><td>Soteria per fixture (avg)</td><td>$60.00</td></tr>
+                        <tr><td>Traditional fixture (avg)</td><td>$115.00</td></tr>
+                    </table>
+                    <div class="reduction-card" style="flex: 1; margin-top: 0;">
+                        <span class="reduction-text">
+                            ~45% cost reduction at scale compared to traditional fixture installations
+                        </span>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
